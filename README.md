@@ -1,110 +1,113 @@
-# 🎬 Movie App — React Hooks Checkpoint
+# 🎬 Movie App – React Router Checkpoint
 
-This project is a small React application designed to display, add, and filter movies or TV shows.  
-It was built as part of the **React Hooks Checkpoint** and demonstrates key React concepts such as **useState**, and **useEffect**
-
----
+This project is a small movie catalog application built with React. It allows users to add movies, browse them, filter them, and view a dedicated description page with an embedded trailer. The app also uses React Router for navigation and localStorage to persist movie data.
 
 ## 🚀 Features
+### ✔️ Add Movies
 
-### ✔ Display Movies
-Each movie includes:
-- **title**
-- **description**
-- **posterUrl** (Base64 image from uploaded file)
-- **rating** (0–5)
+Users can add a movie by providing:
 
-The display is handled by the **MovieCard** component.
+Title
 
----
+Description
 
-### ✔ Movie List
-The **MovieList** component receives an array of movies and displays each one as a card.
+Poster image (uploaded file)
 
----
+Rating (from 1 to 5)
 
-### ✔ Add New Movies
-Using the **FormMovie** component, users can:
-- Add a movie through a form  
-- Upload a local image (converted to Base64)  
-- Save the movie to LocalStorage  
-- Update the movie list instantly  
+YouTube trailer link
 
----
+All movies are saved in localStorage, ensuring they persist after page reloads.
 
-### ✔ Delete a Movie
-Every movie card includes a delete icon.  
-Deleting a movie:
-- Updates the list  
-- Reflects the change in LocalStorage  
+### ✔️ Movie List Display
 
----
+Each movie is displayed as a card with:
 
-### ✔ Filter by Title and Rating
-With the **Filter** component, users can search:
-- By title (text search)
-- By rating (minimum rating)
-a
-Filtering updates the displayed movies in real-time via the `onSearch` callback.
+Poster
 
----
+Title
 
-### ✔ LocalStorage Persistence
-All added or deleted movies remain saved locally, even after refreshing the page.
+Short description
 
----
+Rating
 
-## 🧩 Component Structure
+Delete button
 
-```
+Clicking on a movie poster redirects to the movie's details page.
+
+### ✔️ Search & Filter
+
+In the header, the user can:
+
+Search by title
+
+Filter by minimum rating
+
+Results update dynamically.
+
+### ✔️ Movie Description Page
+
+Each movie has its own page with:
+
+Large poster
+
+Full description
+
+Rating
+
+A YouTube trailer embedded directly using an iframe
+
+A “Go Back” button to return to the home page
+
+### ✔️ Routing
+
+The app uses React Router:
+
+/ → Movie list + Add movie button
+
+/movie/:title → Movie details page
+
+📁 Project Structure
 src/
-│── components/
-│    ├── Header.js
-│    ├── Filter.js
-│    ├── MovieCard.js
-│    ├── MovieList.js
-│    └── FormMovie.js
+│ App.js
+│ index.css
+│ App.css
 │
-│── App.js
-│── index.js
-```
+├── components/
+│   ├── Header.js
+│   ├── Footer.js
+│   ├── MovieList.js
+│   ├── MovieCard.js
+│   ├── FormMovie.js
+│   └── DisplayMovie.js
 
----
+## 🛠️ Technologies Used
 
-## 🛠 Technologies Used
+React
 
-- **React** (Hooks)
-- **React Bootstrap**
-- **JavaScript ES6**
-- **LocalStorage**
-- **FileReader API** (for Base64 conversion) for visonning the posters
+React Router DOM
 
----
+React-Bootstrap
 
-## ▶️ Run the Project
+localStorage
 
-```
+FileReader API (for poster upload)
+
+▶️ How to Run the Project
 npm install
 npm start
-```
 
-The app will run on:  
+
+The app runs on:
+
 http://localhost:3000
 
----
+📸 Demo (Optional)
 
-## 📌 Learning Objectives Achieved
+Add your screenshots or GIFs here.
 
-- Managing state with **useState**
-- Persisting data using **useEffect + LocalStorage**
-- Component communication (props + callbacks)
-- Form handling and validation
-- Dynamic filtering logic
-- Building a clean, modular React project structure
+📌 Notes
 
----
+The YouTube link is automatically converted into an embeddable format.
 
-
-## 👨‍💻 Author
-
-Project created by **Sylvestre** as part of the React Hooks Checkpoint.
+Data persistence works only on the same browser thanks to localStorage.

@@ -14,6 +14,7 @@ const FormMovie = ({ onSave }) => {
         description: e.target.formDescription.value,
         posterUrl: reader.result,
         rating: parseFloat(e.target.formRating.value),
+        trailerUrl: e.target.formTrailerUrl.value
       };
 
       onSave(movie);
@@ -24,14 +25,15 @@ const FormMovie = ({ onSave }) => {
   return (
     <>
       <div className="container z-1 d-flex justify-content-center position-absolute">
-        <Card className="mt-4 mb-4" style={{ width: "450px" }}>
-          <Card.Header style={{fontSize:"20px"}}>Add movie</Card.Header>
+        <Card className="mt-4 mb-4" style={{ width: "475px" }}>
+          <Card.Header style={{ fontSize: "30px", fontWeight:"600" }}>Add movie</Card.Header>
           <Card.Body>
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formTitle">
                 <Form.Label>Title</Form.Label>
                 <Form.Control type="text" placeholder="Enter movie title" />
               </Form.Group>
+
               <Form.Group className="mb-3" controlId="formDescription">
                 <Form.Label>Description</Form.Label>
                 <Form.Control
@@ -40,10 +42,12 @@ const FormMovie = ({ onSave }) => {
                   placeholder="Enter movie description"
                 />
               </Form.Group>
+
               <Form.Group className="mb-3" controlId="formPosterUrl">
                 <Form.Label>Poster URL</Form.Label>
                 <Form.Control type="file" placeholder="Enter poster URL" />
               </Form.Group>
+
               <Form.Group className="mb-3" controlId="formRating">
                 <Form.Label>Rating</Form.Label>
                 <Form.Control
@@ -53,6 +57,11 @@ const FormMovie = ({ onSave }) => {
                   step="0.1"
                   placeholder="Enter movie rating"
                 />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formTrailerUrl">
+                <Form.Label>Trailer URL</Form.Label>
+                <Form.Control type="text" placeholder="Enter the trailer URL" />
               </Form.Group>
 
               <Button variant="success" type="submit" className="float-end">
