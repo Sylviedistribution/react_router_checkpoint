@@ -10,16 +10,19 @@ import { Button } from "react-bootstrap";
 import "./index.css";
 
 function App() {
+  // Initialize movies state from localStorage or as an empty array
   const [movies, setMovies] = useState(() => {
     const saved = localStorage.getItem("movies");
     return saved ? JSON.parse(saved) : [];
   });
 
+  // State for filtered movies based on search criteria
   const [filteredMovies, setFilteredMovies] = useState([]);
 
+  // State to control the visibility of the FormMovie component
   const [show, setShow] = useState(false);
 
-  // Sync movies to localStorage whenever movies changes
+  // Update localStorage and filteredMovies whenever movies state changes
   useEffect(() => {
     localStorage.setItem("movies", JSON.stringify(movies));
     setFilteredMovies(movies);
@@ -48,10 +51,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* Wrap the app in BrowserRouter for routing */}
       <Header firstname="Sylvestre" onSearch={searchMovies} />
-
-      {/* Conditional rendering of FormMovie when clicking on the button */}
-
       <div className="container">
         <Routes>
           <Route
@@ -61,7 +62,9 @@ function App() {
                 <Button className="mt-3" onClick={() => setShow(!show)}>
                   Add movie
                 </Button>
-                {show && <FormMovie onSave={addMovie} onClose={() => setShow(false)}/>}
+                {show && (
+                  <FormMovie onSave={addMovie} onClose={() => setShow(false)} />
+                )}
                 <MovieList movies={filteredMovies} onDelete={deleteMovie} />
               </>
             }

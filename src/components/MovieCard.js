@@ -4,25 +4,26 @@ import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie, onDelete }) => {
   const navigate = useNavigate();
+
   const handleDelete = () => {
     if (window.confirm(`Are you sure you want to delete "${movie.title}"?`)) {
       onDelete(movie);
     }
   };
-
+  
+  // Function to navigate to the movie detail page
   const goTo = () => {
     navigate("/movie/" + movie.title);
   };
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "18rem" }} onClick={goTo}>
       <Image
         variant="top"
         src={movie.posterUrl}
         height={"300px"}
-        onClick={goTo}
         style={{ cursor: "pointer" }}
-        />
+      />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>{movie.description}</Card.Text>

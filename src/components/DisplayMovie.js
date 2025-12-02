@@ -13,6 +13,7 @@ const DisplayMovie = ({ movies }) => {
 
   return (
     <Container className="mt-5">
+      {/* Go back button to return to the previous page */}
       <Button variant="secondary" onClick={() => navigate(-1)} className="mb-4">
         &larr; Go back
       </Button>
