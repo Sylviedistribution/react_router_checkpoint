@@ -10,19 +10,20 @@ const MovieCard = ({ movie, onDelete }) => {
       onDelete(movie);
     }
   };
-  
+
   // Function to navigate to the movie detail page
   const goTo = () => {
     navigate("/movie/" + movie.title);
   };
 
   return (
-    <Card style={{ width: "18rem" }} onClick={goTo}>
+    <Card style={{ width: "18rem" }}>
       <Image
         variant="top"
         src={movie.posterUrl}
         height={"300px"}
         style={{ cursor: "pointer" }}
+        onClick={goTo}
       />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
