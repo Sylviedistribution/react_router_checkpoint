@@ -103,4 +103,5 @@ The app runs on:
 http://localhost:3000
 
 📌 Note
+
 Data persistence works only on the same browser thanks to localStorage.
