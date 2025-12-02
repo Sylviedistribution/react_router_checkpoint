@@ -102,12 +102,6 @@ The app runs on:
 
 http://localhost:3000
 
-📸 Demo (Optional)
-
-Add your screenshots or GIFs here.
-
-📌 Notes
-
-The YouTube link is automatically converted into an embeddable format.
+📌 Note
 
 Data persistence works only on the same browser thanks to localStorage.
